@@ -1,0 +1,18 @@
+百度魔窗SDK的使用
+进入魔窗后台进行设置---最主要的就是
+
+mLink的配置   类名(这个随便调用)?id=:id&from=:from    语法  
+
+开发者中心开启对应的服务通知就ok了
+按照文档的写  然后进行调用就ok
+
+ [MWApi registerMLinkHandlerWithKey:@"Activity" handler:^(NSURL * _Nonnull url, NSDictionary * _Nullable params) {
+        [weakSelf tabBar];
+        HomeController *homeWebVC = [HomeController new];
+        homeWebVC.value_url = [params objectForKey:@"url"];
+        homeWebVC.value_title = [params objectForKey:@"title"];
+        homeWebVC.hidesBottomBarWhenPushed = YES;
+        [(UINavigationController *)self.tabBar.selectedViewController pushViewController:homeWebVC animated:YES];
+    }];
+    
+
