@@ -1,0 +1,20 @@
+圆角
+
+分装的View
+UIView *viewBezier = [[UIView alloc] initWithFrame:CGRectMake(10, 20, screchwith-20, 100)]; 
+        viewBezier.backgroundColor = [UIColor redColor];
+        [self addSubview:viewBezier];
+
+UIBezierPath maskPath = [UIBezierPath bezierPathWithRoundedRect:viewBezier.bounds byRoundingCorners:
+UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(40, 40)];
+CAShapeLayer maskLayer = [[CAShapeLayer alloc] init]; 
+maskLayer.frame = viewBezier.bounds;
+maskLayer.path = maskPath.CGPath;
+viewBezier.layer.mask = maskLayer;
+
+UIRectCornerTopLeft
+UIRectCornerTopRight
+UIRectCornerBottomLeft
+UIRectCornerBottomRight
+UIRectCornerAllCorners
+
