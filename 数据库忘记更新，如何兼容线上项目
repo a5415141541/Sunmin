@@ -1,0 +1,16 @@
+  if (![db columnExists:@"nlineTime" inTableWithName:@"sunmin"]){
+                createSql = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ INTEGER",@"sunmin",@"Time"];
+                [db executeUpdate:createSql];
+            }
+            
+            if (![db columnExists:@"statusSuccess" inTableWithName:@"sunminOne"]){
+                createSql = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ INTEGER",@"sunmin",@"statusSuccess"];
+                [db executeUpdate:createSql];
+            }
+            
+            用户进行存储的时候，会进行数据库的创建和插入数据    
+            检查的时候  加上上面的代码，进行监测，如果没有就添加，有的话直接走下面
+            
+            
+            
+            但是插入的时候还是需要把这些字段添加上
